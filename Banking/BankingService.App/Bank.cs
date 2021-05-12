@@ -11,5 +11,10 @@ namespace BankingService
         {
             Accounts = new List<Account>() { };
         }
+
+        public void AddAccount(Account account)
+        {
+            Accounts.Add(account);
+        }
     }
 }
