@@ -7,7 +7,7 @@ namespace BankingService.Tests
     public class Account_Withdrawal
     {
         [Fact]
-        public void Test()
+        public void Should_withdraw30fromAccountandBalanceof100_should_be70()
         {
             // Arrange
             Account account = new Account("CS-X", "Bob", "Putnam");
@@ -18,5 +18,15 @@ namespace BankingService.Tests
 
             account.Balance.Should().Be(70);
         }
+        [Fact]
+        public void TestName()
+        {
+        //Given 
+        Account account = new Account("CS-X", "Bob", "Putnam");
+        //When
+        //Then
+        account.Withdrawal(-1).Should().Throw<ApplicationException>();
+        }
     }
-}`
+        
+}
