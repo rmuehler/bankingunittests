@@ -6,17 +6,20 @@ namespace BankingService.Tests
 {
     public class Account_Withdrawal
     {
-        [Fact]
-        public void Should_withdraw30fromAccountandBalanceof100_should_be70()
+        [Theory]
+        [InlineData(30)]
+        [InlineData(50)]
+        [InlineData(80)]
+        public void Should_withdraw30fromAccountandBalanceof100_should_be70(decimal value)
         {
             // Arrange
             Account account = new Account("CS-X", "Bob", "Putnam");
             // Act
             account.Deposit(100);
-            account.Withdrawal(30);
+            account.Withdrawal(value);
             // Assert
 
-            account.Balance.Should().Be(70);
+            account.Balance.Should().Be(100-value);
         }
 
         [Fact]
