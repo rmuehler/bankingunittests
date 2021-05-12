@@ -2,6 +2,7 @@
 using Xunit;
 using BankingService;
 using FluentAssertions;
+
 namespace BankingService.Tests
 {
     public class Account_Deposit

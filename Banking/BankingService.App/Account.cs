@@ -31,7 +31,14 @@ namespace BankingService
 
         public void Withdrawal(decimal amount)
         {
+            if(amount < 0){
+                throw new ApplicationException("Cannot withdraw negative amounts");
+            }
+            if(amount > _balance){
+                throw new ApplicationException("Not enough funds to withdraw, too poor. Try Again");
+            }
             _balance -= amount;
+            _transactions.Add($"Withdraw: ${amount}");
         }
     }
 }
